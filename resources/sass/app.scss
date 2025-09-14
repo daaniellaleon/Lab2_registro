@@ -1,0 +1,7 @@
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables (opcional, si tienes _variables.scss)
+@import 'variables';
+
+// Bootstrap (con tilde para resolver node_modules en Mix)
+@import "~bootstrap/scss/bootstrap";
