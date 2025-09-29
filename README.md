@@ -1,6 +1,10 @@
-# Laboratorio: Implementación del Login en Laravel  
+# 🌐 Laboratorio: Implementación del Login en Laravel  
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+  </a>
+</p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -11,17 +15,19 @@
 
 ---
 
-## 1. Descripción del Proyecto  
+##  1. Descripción del Proyecto  
 Este repositorio contiene la implementación del módulo de **autenticación (login/registro)** en **Laravel**, aplicando la arquitectura **MVC (Modelo – Vista – Controlador)**.  
 El proyecto incluye la configuración de entornos locales, migraciones de base de datos y la integración de paquetes de autenticación (Laravel UI o Breeze).  
 
 ---
-## Arquitectura MVC en Laravel
-- **Modelos (app/Models):** Definen la lógica y las reglas de la base de datos.  
-- **Vistas (resources/views):** Contienen la interfaz que ve el usuario (Blade templates).  
-- **Controladores (app/Http/Controllers):** Gestionan la lógica entre modelos y vistas.  
-- **Rutas (routes/web.php):** Definen las URL que responden a controladores o vistas.  
 
+## 🏗️ Arquitectura MVC en Laravel
+- **🗄️ Modelos (`app/Models`):** Definen la lógica y las reglas de la base de datos.  
+- **🎨 Vistas (`resources/views`):** Contienen la interfaz que ve el usuario (Blade templates).  
+- **⚙️ Controladores (`app/Http/Controllers`):** Gestionan la lógica entre modelos y vistas.  
+- **🌍 Rutas (`routes/web.php`):** Definen las URL que responden a controladores o vistas.  
+
+---
 
 ## 2. Requisitos Previos  
 ![PHP](https://img.shields.io/badge/PHP-8.0-blue?logo=php) ![Composer](https://img.shields.io/badge/Composer-latest-orange?logo=composer) ![Laravel](https://img.shields.io/badge/Laravel-10.x-red?logo=laravel) ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql) ![Node.js](https://img.shields.io/badge/Node.js-18-green?logo=nodedotjs) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-blue?logo=visualstudiocode)  
