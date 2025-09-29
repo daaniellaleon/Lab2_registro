@@ -135,13 +135,14 @@ README.md
 ---
 
 ## 7. Evidencias   
-- Login
+- Login<br>
   <img width="660" height="307" alt="image" src="https://github.com/user-attachments/assets/88605f4b-1061-4a82-bf7b-aa41e27d94e2" />
 
-- Registro
+
+- Registro<br>
   <img width="636" height="327" alt="image" src="https://github.com/user-attachments/assets/4127fb40-6b56-4300-bea7-0dca08e4b82c" />
 
-- Dashboard  
+- Dashboard  <br>
 <img width="640" height="260" alt="image" src="https://github.com/user-attachments/assets/b282b7b3-a54e-4aa4-83e8-e6d04813056b" />
 
 ---
