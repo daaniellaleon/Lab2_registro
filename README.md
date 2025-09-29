@@ -16,6 +16,12 @@ Este repositorio contiene la implementación del módulo de **autenticación (lo
 El proyecto incluye la configuración de entornos locales, migraciones de base de datos y la integración de paquetes de autenticación (Laravel UI o Breeze).  
 
 ---
+## Arquitectura MVC en Laravel
+- **Modelos (app/Models):** Definen la lógica y las reglas de la base de datos.  
+- **Vistas (resources/views):** Contienen la interfaz que ve el usuario (Blade templates).  
+- **Controladores (app/Http/Controllers):** Gestionan la lógica entre modelos y vistas.  
+- **Rutas (routes/web.php):** Definen las URL que responden a controladores o vistas.  
+
 
 ## 2. Requisitos Previos  
 ![PHP](https://img.shields.io/badge/PHP-8.0-blue?logo=php) ![Composer](https://img.shields.io/badge/Composer-latest-orange?logo=composer) ![Laravel](https://img.shields.io/badge/Laravel-10.x-red?logo=laravel) ![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql) ![Node.js](https://img.shields.io/badge/Node.js-18-green?logo=nodedotjs) ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-blue?logo=visualstudiocode)  
@@ -128,31 +134,101 @@ README.md
 
 ---
 
-## 7. Evidencias  
-Capturas ubicadas en la carpeta `/resources/screenshots`:  
-- Login  
-- Registro  
+## 7. Evidencias   
+- Login
+  <img width="660" height="307" alt="image" src="https://github.com/user-attachments/assets/88605f4b-1061-4a82-bf7b-aa41e27d94e2" />
+
+- Registro
+  <img width="636" height="327" alt="image" src="https://github.com/user-attachments/assets/4127fb40-6b56-4300-bea7-0dca08e4b82c" />
+
 - Dashboard  
+<img width="640" height="260" alt="image" src="https://github.com/user-attachments/assets/b282b7b3-a54e-4aa4-83e8-e6d04813056b" />
 
 ---
 
 ## 8. Dificultades y Soluciones  
 
+## 1. Composer no reconocido
+- **Problema:** Windows no reconocía el comando `composer`.  
+- **Causa:** Composer no estaba instalado o no estaba en el `PATH`.  
+- **Solución:** Instalé Composer con el instalador oficial y confirmé con `composer -V`.
+
+---
+
+## 2. Instalación de Laravel Installer
+- **Problema:** El installer más nuevo pedía PHP ≥ 8.2, pero tenía PHP 8.0.30.  
+- **Solución:** Composer instaló automáticamente `laravel/installer v4.5.1`, compatible con mi versión de PHP.  
+- **Recomendación:** Seguir trabajando con Laravel 9 (compatible con PHP 8.0).
+
+---
+
+## 3. Carpeta de trabajo incorrecta
+- **Problema:** Intenté entrar a `htdocs` desde `C:\Users\danie`, lo cual dio error.  
+- **Solución:** Usar la ruta correcta de XAMPP:  
+  ```bash
+  cd C:\xampp\htdocs
+  ```
+
+---
+
+## 4. Creación de base de datos
+- **Problema:** Estaba dentro de la base de datos interna `mysql` en phpMyAdmin.  
+- **Solución:** Desde la pestaña **Bases de datos**, crear una nueva BD llamada `miapp` con collation `utf8mb4_unicode_ci`.
+
+---
+
+## 5. Laravel seguía buscando la BD `laravel`
+- **Causa:** El archivo `.env` aún tenía `DB_DATABASE=laravel`.  
+- **Solución:** Edité `.env` y cambié a:  
+  ```
+  DB_DATABASE=miapp
+  ```
+
+---
+
+## 6. Error “Vite manifest not found”
+- **Problema:** La plantilla `app.blade.php` usaba `@vite(...)`, pero al instalar `laravel/ui` se configuró **Laravel Mix**, no Vite.  
+- **Solución provisional:**  
+  ```html
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <script src="{{ mix('js/app.js') }}" defer></script>
+  ```
+
+---
+
+## 7. Archivo CSS vacío
+- **Problema:** `public/css/app.css` quedaba vacío.  
+- **Causa:** `webpack.mix.js` probablemente incluía dos salidas (`.sass y .postCss`), sobrescribiendo el archivo.  
+- **Solución:** Ajustar `webpack.mix.js` para dejar solo:  
+  ```js
+  mix.js('resources/js/app.js', 'public/js')
+     .sass('resources/sass/app.scss', 'public/css');
+  ```
+
+---
+
+## Dificultades y Soluciones adicionales
 - **Problema:** Versiones incompatibles de PHP y Laravel.  
   - **Solución:** Actualizar PHP a la versión 8.2 en XAMPP.  
 
 - **Problema:** Tablas duplicadas en migraciones.  
-  - **Solución:** Ejecutar `php artisan migrate:fresh`.  
+  - **Solución:** Ejecutar:  
+    ```bash
+    php artisan migrate:fresh
+    ```  
 
 - **Problema:** Servicios de MySQL detenidos.  
   - **Solución:** Iniciar manualmente MySQL en XAMPP.  
 
 - **Problema:** Pantalla de Laravel sin estilos.  
-  - **Solución:** Ejecutar `npm run dev` para compilar assets correctamente.  
+  - **Solución:** Ejecutar:  
+    ```bash
+    npm run dev
+    ```  
+    para compilar assets correctamente.  
 
 - **Problema:** Errores al ejecutar comandos en PowerShell.  
-  - **Solución:** Usar CMD en lugar de PowerShell.  
-
+  - **Solución:** Usar **CMD** en lugar de PowerShell.  
 ---
 
 ## 9. Referencias  
@@ -169,7 +245,8 @@ Desarrollado por la estudiante de la Universidad Tecnológica de Panamá: <br>
 <strong>Correo:</strong> Daniella.deleon@utp.ac.pa <br>
 <strong>Curso:</strong> Ingeniería Web - Unidad I: MVC <br>
 <strong>Instructor:</strong> Ing. Irina Fong <br>
-<strong>Fecha de ejecución:</strong> 26 de Septiembre de 2025  
+<strong>Fecha de ejecución:</strong> 28 de Septiembre de 2025  
+<strong>Fecha Limite de entrega:</strong> 29 de Septiembre de 2025  
 </p>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
